@@ -28,6 +28,7 @@ LOG_PATH=$WORK_PATH/log
 LOG_DEBUG=$LOG_PATH/${PROG_NAME}.${TODAY}.log
 LOG_WARN=$LOG_PATH/${PROG_NAME}.${TODAY}.log.wf
 LOG_FATAL=$LOG_PATH/${PROG_NAME}.${TODAY}.log.wf
+MAIL_TO="panwenhai@100tal.com"
 
 # create log director if necessary
 if [ ! -d $LOG_PATH ]; then
@@ -57,6 +58,12 @@ function Write_Log_Fatal ()
 	time_hms=`date +%T`
 	echo "FATAL: $time_day $time_hms $@" >> $LOG_FATAL;
 	return $OK
+}
+
+function Send_Fatal_Mail ()
+{
+        tail $LOG_FATAL | mail -s "$(echo -e "$PROG_NAME error!\nContent-Type: text/html")" ${MAIL_TO}
+        return $OK
 }
 
 # add your global definitions here:
