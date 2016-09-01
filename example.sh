@@ -1,21 +1,25 @@
 #!/usr/bin/bash
 
-
 ######################################################
 #
-# File Name:  test.sh
+# File Name:	example.sh
 #
-# Function:   
+# Function:		使用样例程序
 #
-# Usage:  
+# Usage:		bash ./example.sh
 #
-# Author: panwenhai
+# Input:		none
 #
-# Create Time:    2016-06-22 14:51:48
+# Output:		none
+#
+# Author:		panwenhai
+#
+# Create Time:    2016-07-01 16:07:44
 #
 ######################################################
 
-source common.sh
+source globals.sh
+source log.sh
 
 echo "WORK_PATH=${WORK_PATH}"
 echo "PROG_NAME=${PROG_NAME}"
@@ -26,6 +30,21 @@ echo "LOG_PATH=${LOG_PATH}"
 echo "LOG_DEBUG=${LOG_DEBUG}"
 echo "LOG_WARN=${LOG_WARN}"
 echo "LOG_FATAL=${LOG_FATAL}"
+
+function init ()
+{
+	return $OK
+}
+
+function get_data ()
+{
+	return $OK
+}
+
+function store_result ()
+{
+	return $OK
+}
 
 function main ()
 {
@@ -58,3 +77,4 @@ function main ()
 }
 
 main $@
+
